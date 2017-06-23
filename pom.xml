@@ -2,13 +2,20 @@
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	
+
 	<groupId>com.gridpoint.energy</groupId>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>akka-brownbag</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<name>Akka BrownBag</name>
-	
+
+	<parent>
+		<groupId>com.gridpoint.energy</groupId>
+		<artifactId>energy</artifactId>
+		<version>4.12-SNAPSHOT</version>
+	</parent>
+
+
 	<distributionManagement>
 		<repository>
 			<id>releases</id>
@@ -188,10 +195,10 @@
 				<version>${kafka.version}</version>
 			</dependency>
 			<dependency>
-        <groupId>org.apache.kafka</groupId>
-        <artifactId>kafka-clients</artifactId>        
-        <version>${kafka.version}</version>
-      </dependency>
+				<groupId>org.apache.kafka</groupId>
+				<artifactId>kafka-clients</artifactId>
+				<version>${kafka.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>com.gridpoint.energy</groupId>
 				<artifactId>gp-kafka-client</artifactId>
@@ -302,11 +309,6 @@
 		<protobuf-java.version>3.1.0</protobuf-java.version>
 	</properties>
 
-	<parent>
-		<groupId>com.gridpoint.energy</groupId>
-		<artifactId>adm</artifactId>
-		<version>4.12-SNAPSHOT</version>
-	</parent>
 
 	<dependencies>
 		<dependency>
