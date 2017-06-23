@@ -7,12 +7,17 @@ import akka.pattern.ask
 import scala.concurrent.duration.DurationInt
 import akka.util.Timeout
 
+// Because async messaging is the only way to communicate with actors, 
+// there can still be a need to get specific responses from actors
+// The ask pattern allows to send a message to the actor
+// and get back a response
 object UserClickCounter {
   case object AddClick
   case object GetClicks
   case class Clicks(total: Int)
 }
 
+// Increments counter every time it gets an AddClick message
 class UserClickCounter extends Actor {
   var counter: Int = 0
   
@@ -24,7 +29,6 @@ class UserClickCounter extends Actor {
       sender() ! UserClickCounter.Clicks(counter)
   }
 }
-
 
 object StatisticsActor {
   case object PrintStats

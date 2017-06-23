@@ -17,6 +17,10 @@ object RandomGenerator {
 class RandomGenerator extends Actor {
   import util.Random
 
+  override def preStart(): Unit = {
+    println(s"Starting RandomGenerator")
+  }
+  
   def receive = {
     case RandomGenerator.Generate(replyTo) =>
       replyTo ! RandomGenerator.RandomDouble(Random.nextDouble())
@@ -26,6 +30,10 @@ class RandomGenerator extends Actor {
 class BuggyRandomGenerator extends Actor {
   import util.Random
 
+  override def preStart(): Unit = {
+    println(s"Starting BuggyRandomGenerator")
+  }
+  
   def receive = {
     case RandomGenerator.Generate(replyTo) =>
       if (Random.nextBoolean()) throw new RuntimeException("FAILED!!!")

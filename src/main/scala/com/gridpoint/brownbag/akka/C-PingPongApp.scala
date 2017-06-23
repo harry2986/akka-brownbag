@@ -13,11 +13,13 @@ object PingPongApp extends App {
   // These should be created sparingly, because ideally 
   // you want to have a hierarchy of actors. This helps 
   // a lot with supervision especially
-  val pinger: ActorRef = system.actorOf(Pinger.props, "Pinger") // does not return an instance, but an address instead
+  // Creating the actor does not return an instance, but an ActorRef instead
+  // It is immutable, can be serialized, and hence actors can be location transparent
+  val pinger: ActorRef = system.actorOf(Pinger.props, "Pinger") 
   val ponger: ActorRef = system.actorOf(Pinger.props, "Ponger")
   // Always name the actors
   
-  ponger.tell(Pinger.Ping, ponger)
+  ponger.tell(Pinger.Ping, pinger)
 }
 
 
