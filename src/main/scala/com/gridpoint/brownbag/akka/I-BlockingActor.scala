@@ -18,7 +18,6 @@ class BlockingActor extends Actor {
 }
 
 class BlockingFutureActor extends Actor {
-  implicit val executionContext: ExecutionContext = context.dispatcher
   /**
    * my-blocking-dispatcher {
       type = Dispatcher
@@ -33,8 +32,10 @@ class BlockingFutureActor extends Actor {
     They are responsible for deciding which actor is allocated to a thread for
     execution and how/when they are swithced.
    */
+  
+  implicit val executionContext: ExecutionContext = context.dispatcher
   //implicit val executionContext: ExecutionContext = context.system.dispatchers.lookup("my-blocking-dispatcher")
-
+  
   def receive = {
     case i: Int =>
       println(s"Calling blocking Future: ${i}")
