@@ -1,6 +1,11 @@
 package com.gridpoint.brownbag.akka
 
 import akka.actor.Actor
+import akka.actor.Props
+import akka.actor.Actor.Receive
+object MyActor {
+  def props: Props = Props(new MyActor)
+}
 
 // Actors are lightweight, and we can a few dozen
 // or a few million in a system.
@@ -11,7 +16,8 @@ class MyActor extends Actor {
   // embody processing, storage and communication
   // A Universal Modular Actor Formalism for Artificial Intelligence - Carl Hewitt et all (1973)
 
-  def receive: PartialFunction[Any, Unit] = {
+  //PartialFunction[Any, Unit]
+  def receive: Receive = {
     case "Hello" => println("Hello")
   }
 }
