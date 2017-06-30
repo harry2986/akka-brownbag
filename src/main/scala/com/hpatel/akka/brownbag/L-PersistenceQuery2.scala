@@ -1,4 +1,4 @@
-package com.gridpoint.brownbag.akka
+package com.hpatel.akka.brownbag
 
 import akka.persistence.query.PersistenceQuery
 import akka.persistence.jdbc.query.scaladsl.JdbcReadJournal

@@ -3,26 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-	<groupId>com.gridpoint.energy</groupId>
+	<groupId>com.hpatel.akka</groupId>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>akka-brownbag</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<name>Akka BrownBag</name>
-
-	<parent>
-		<groupId>com.gridpoint.energy</groupId>
-		<artifactId>energy</artifactId>
-		<version>4.12-SNAPSHOT</version>
-	</parent>
-
-
-	<distributionManagement>
-		<repository>
-			<id>releases</id>
-			<name>Gridpoint Releases Repository</name>
-			<url>http://maven.gridpoint.com/nexus/content/repositories/releases</url>
-		</repository>
-	</distributionManagement>
 
 	<dependencyManagement>
 		<dependencies>
@@ -152,16 +137,7 @@
 				<artifactId>smtp-connection-pool</artifactId>
 				<version>1.2.1</version>
 			</dependency>
-			<dependency>
-				<groupId>com.gridpoint.energy</groupId>
-				<artifactId>gp-kafka-client</artifactId>
-				<version>${gp-kafka-client.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.gridpoint.energy</groupId>
-				<artifactId>alarms-service-messages</artifactId>
-				<version>${alarms-service-messages.version}</version>
-			</dependency>
+			
 			<dependency>
 				<groupId>com.google.http-client</groupId>
 				<artifactId>google-http-client</artifactId>
@@ -199,12 +175,7 @@
 				<artifactId>kafka-clients</artifactId>
 				<version>${kafka.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>com.gridpoint.energy</groupId>
-				<artifactId>gp-kafka-client</artifactId>
-				<version>${gp-kafka-client.version}</version>
-				<classifier>tests</classifier>
-			</dependency>
+			
 			<dependency>
 				<groupId>io.kamon</groupId>
 				<artifactId>kamon-core_2.11</artifactId>
@@ -441,21 +412,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.gridpoint.energy</groupId>
-			<artifactId>gp-kafka-client</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.logging.log4j</groupId>
-					<artifactId>log4j-1.2-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.gridpoint.energy</groupId>
-			<artifactId>alarms-service-messages</artifactId>
-		</dependency>
+		</dependency>		
 		<dependency>
 			<groupId>com.google.http-client</groupId>
 			<artifactId>google-http-client</artifactId>
@@ -501,13 +458,7 @@
 			<groupId>org.apache.kafka</groupId>
 			<artifactId>kafka-clients</artifactId>
 			<classifier>test</classifier>
-		</dependency>
-		<dependency>
-			<groupId>com.gridpoint.energy</groupId>
-			<artifactId>gp-kafka-client</artifactId>
-			<scope>test</scope>
-			<classifier>tests</classifier>
-		</dependency>
+		</dependency>		
 		<dependency>
 			<groupId>io.kamon</groupId>
 			<artifactId>kamon-core_2.11</artifactId>

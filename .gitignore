@@ -14,6 +14,8 @@ syntax: glob
 .manager
 .scala_dependencies
 
+.cache-main
+
 # idea
 .idea
 *.iml

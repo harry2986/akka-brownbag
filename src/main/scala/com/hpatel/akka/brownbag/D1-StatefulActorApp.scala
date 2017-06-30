@@ -1,4 +1,4 @@
-package com.gridpoint.brownbag.akka
+package com.hpatel.akka.brownbag
 
 import akka.actor.ActorSystem
 
