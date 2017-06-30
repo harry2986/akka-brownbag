@@ -44,7 +44,7 @@ class StatisticsActor(userClickCounter: ActorRef) extends Actor {
       // Ask is completely non-blocking and returns a future
       // The receiving actor must reply to this message to 
       // complete the future
-      val numClicks = userClickCounter ? UserClickCounter.GetClicks 
+      val numClicks = userClickCounter ? UserClickCounter.GetClicks     
       numClicks pipeTo self
       
     case UserClickCounter.Clicks(total) =>

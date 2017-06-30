@@ -17,7 +17,7 @@ object Counter {
 class Counter extends Actor {
   // mutable state
   var countDown = 100
-  
+  context.stop(self)
   def receive = {
     case Counter.Count =>
       if(countDown > 0) {

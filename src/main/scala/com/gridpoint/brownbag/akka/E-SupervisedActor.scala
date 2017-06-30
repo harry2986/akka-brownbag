@@ -5,6 +5,7 @@ import akka.actor.ActorRef
 import akka.actor.Props
 import akka.actor.SupervisorStrategy
 import akka.actor.OneForOneStrategy
+import akka.actor.Terminated
 
 object RandomGenerator {
   case class Generate(replyTo: ActorRef)
@@ -49,15 +50,17 @@ object RandomGeneratorSupervisor  {
 }
 
 class RandomGeneratorSupervisor extends Actor {
-  val generator = context.actorOf(RandomGenerator.props)
-  //val generator = context.actorOf(RandomGenerator.buggyProps)
+  //val generator = context.actorOf(RandomGenerator.props)
+  val generator = context.actorOf(RandomGenerator.buggyProps)
   
+  context.watch(generator)
   // Function Calls or code in the Actor' body is run 
   // when the Actor gets instantiated
   getRandom
   
   def receive = {
     case RandomGenerator.RandomDouble(value) => println(value)
+    case Terminated(generator) => println("Generator Killed")
   }
   
   private def getRandom = {

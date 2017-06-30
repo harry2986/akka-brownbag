@@ -7,6 +7,7 @@ import akka.actor.ActorRef
 object PingPongApp extends App {
  
   // Actors need an ActorSystem, they cannot live on their own
+  //
   val system: ActorSystem = ActorSystem("PingPong")
   
   // You can create root actors by using system.actorOf. 
